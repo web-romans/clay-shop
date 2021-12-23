@@ -1,0 +1,100 @@
+@use "sass:math";
+
+@function prc($pxOne, $pxTwo) {
+    $result: math.div($pxOne, $pxTwo) * 100%;
+    @return $result;
+}
+
+@function rem($px) {
+    $result: math.div($px, 16) + rem;
+    @return $result;
+}
+
+@function em($px) {
+    $result: math.div($px, 16) + em;
+    @return $result;
+}
+
+// Thx https://youtu.be/eaOAY0vIB4U
+@mixin adaptive($property, $startSize, $minSize, $type) {
+    $addSize: $startSize - $minSize;
+    @if $type==1 {
+        //меньше контейнера
+        #{$property}: $startSize + px;
+        @media (max-width: #{$maxWidthContainer + px}) {
+            #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidthContainer - 320}));
+        }
+    } @else if $type==2 {
+        //больше контейнера
+        #{$property}: $startSize + px;
+        @media (min-width: #{$maxWidthContainer + px}) {
+            #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
+        }
+    } @else {
+        //всегда
+        #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
+    }
+}
+
+@mixin adaptiveMinWidth($property, $startSize, $minSize, $minwidth) {
+    $addSize: $startSize - $minSize;
+    #{$property}: calc(
+        #{$minSize + px} + #{$addSize} * ((100vw - #{$minwidth + px}) / #{$maxWidthContainer - #{$minwidth}})
+    );
+}
+
+// imgs
+@mixin full-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@mixin transition {
+    transition: all 0.2s ease-in-out;
+}
+
+@mixin nav-heading-hover {
+    @include transition;
+    color: var(--color-primary);
+}
+
+// flex
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+}
+
+@mixin flex-all-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flex-center-start {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+@mixin flex-center-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@mixin flex-start-between {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+@mixin flex-start-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}

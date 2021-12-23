@@ -1,0 +1,16 @@
+.logo {
+    @include flex-center;
+    gap: rem(16);
+
+    &__svg {
+        width: rem(22);
+        height: rem(24);
+    }
+
+    &:hover {
+        @include nav-heading-hover;
+        .logo__svg {
+            fill: var(--color-primary);
+        }
+    }
+}

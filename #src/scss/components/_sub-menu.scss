@@ -1,0 +1,32 @@
+.sub-menu {
+    padding: rem(50) 0 rem(70) 0;
+    background-color: var(--color-gray-2);
+    &__container {
+        @include flex-start-between;
+    }
+
+    &__sales {
+        @include flex-column;
+    }
+
+    &__item {
+        margin-bottom: rem(16);
+    }
+
+    &__link {
+        font-size: rem(16);
+        line-height: 1.25;
+        color: var(--color-gray-6);
+        @include transition;
+        &:hover {
+            @include transition;
+            color: var(--color-black);
+            text-decoration: underline;
+        }
+    }
+
+    &__img {
+        border-radius: rem(16);
+        margin-bottom: rem(16);
+    }
+}

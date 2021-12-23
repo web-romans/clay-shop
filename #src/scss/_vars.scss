@@ -1,0 +1,13 @@
+:root {
+    --color-primary: #eda3b5;
+    --color-black: #1b2437;
+    --color-white: #fff;
+    --color-gray-2: #efeff4;
+    --color-gray-6: #8e8e93;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0 rem(20);
+    max-width: rem($maxWidthContainer);
+}

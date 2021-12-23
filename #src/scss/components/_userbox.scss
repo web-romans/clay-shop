@@ -1,0 +1,10 @@
+.userbox {
+    @include flex-center-between;
+    gap: rem(32);
+
+    &__svg {
+        width: rem(24);
+        height: rem(24);
+        color: var(--color-black);
+    }
+}

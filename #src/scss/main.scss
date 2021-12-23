@@ -1,0 +1,20 @@
+@import "fonts";
+
+@import "settings";
+@import "mixins";
+@import "vars";
+@import "typography";
+@import "animate";
+
+// компоненты страницы
+
+// подключения компонентов страницы (большие компоненты)
+@import "./components/header";
+@import "./components/footer";
+
+// подключения компонентов страницы (маленькие компоненты)
+@import "./components/logo";
+@import "./components/userbox";
+@import "./components/menu";
+@import "./components/sub-menu";
+@import "./components/burger";

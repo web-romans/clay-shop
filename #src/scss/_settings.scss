@@ -1,0 +1,22 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: "Mulish", sans-serif;
+    font-weight: 400;
+    min-width: 320px;
+}
+
+a {
+    text-decoration: none;
+}
+
+$maxWidth: 1366;
+$maxWidthContainer: 1140;
