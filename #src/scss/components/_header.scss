@@ -1,8 +1,59 @@
 .header {
     @include flex-center-between;
     padding: rem(15) rem(20);
-    background-color: var(--color-white);
-    border-bottom-left-radius: rem(16);
-    border-bottom-right-radius: rem(16);
-    position: relative;
+    width: 100%;
+    position: fixed;
+    z-index: 2;
+    top: 0px;
+    left: 0px;
+    &::after {
+        content: "";
+        background-color: var(--color-white);
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 2;
+    }
+
+    &__logo,
+    &__userbox {
+        position: relative;
+        z-index: 3;
+    }
+
+    &__nav {
+        padding: 0 rem(24);
+        @include tablet {
+            display: none;
+            opacity: 0;
+            visibility: hidden;
+            &.show {
+                display: flex;
+                opacity: 1;
+                visibility: visible;
+                width: 100%;
+                height: calc(100% - 100px);
+                overflow-y: scroll;
+                position: fixed;
+                background-color: var(--color-white);
+                top: 60px;
+                left: 0px;
+                align-items: center;
+                .menu {
+                    @include flex-column;
+                    width: 100%;
+                    /*
+                    /* if big menu
+                    /*
+                    /* position: absolute;
+                    /* top: 0px;
+                    /* left: 0px;
+                    /* 
+                    */
+                }
+            }
+        }
+    }
 }

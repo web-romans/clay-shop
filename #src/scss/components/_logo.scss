@@ -1,15 +1,19 @@
 .logo {
     @include flex-center;
     gap: rem(16);
-
+    flex-shrink: 0;
+    @include transition;
     &__svg {
+        @include transition;
+
         width: rem(22);
         height: rem(24);
     }
 
     &:hover {
-        @include nav-heading-hover;
+        @include hover-link-primary;
         .logo__svg {
+            @include transition;
             fill: var(--color-primary);
         }
     }

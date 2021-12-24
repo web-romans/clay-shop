@@ -2,7 +2,13 @@
     @include flex-all-center;
     gap: rem(60);
 
+    @include laptop {
+        @include adaptive("gap", 60, 16, 1);
+    }
+
     &__link {
+        position: relative;
+        z-index: 3;
         cursor: pointer;
         &--sub {
             padding-right: rem(16);
@@ -10,18 +16,31 @@
             background-repeat: no-repeat;
             background-position: right top rem(16);
             position: relative;
+
             &::before,
             &::after {
                 content: "";
                 position: absolute;
                 left: 52px;
-                bottom: -20px;
                 border: 13px solid transparent;
-                border-bottom: 15px solid var(--color-gray-2);
+                opacity: 0;
+                visibility: hidden;
             }
-            &::after {
-                border-top: 10px solid white;
-                bottom: -19px;
+            &.show {
+                text-decoration: line-through;
+
+                &::before,
+                &::after {
+                    animation: show-menu 0.2s linear;
+                    opacity: 1;
+                    visibility: visible;
+                    bottom: -20px;
+                    border-bottom: 15px solid var(--color-gray-2);
+                }
+                &::after {
+                    border-top: 10px solid white;
+                    bottom: -19px;
+                }
             }
         }
 
@@ -32,6 +51,7 @@
 
     &__sub {
         position: absolute;
+        z-index: 0;
         width: 100%;
         top: rem(60);
         left: 0;

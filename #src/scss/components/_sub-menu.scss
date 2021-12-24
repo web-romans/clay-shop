@@ -1,12 +1,47 @@
 .sub-menu {
+    opacity: 0;
+    visibility: hidden;
+    @include transition;
+    &.show {
+        opacity: 1;
+        visibility: visible;
+        animation: show-menu 0.2s linear;
+        @include tablet {
+            z-index: 4;
+            top: 0px;
+            height: 100%;
+            overflow: scroll;
+        }
+    }
     padding: rem(50) 0 rem(70) 0;
     background-color: var(--color-gray-2);
     &__container {
         @include flex-start-between;
+        @include laptop {
+            flex-wrap: wrap;
+            row-gap: rem(24);
+        }
+    }
+
+    &__list {
+        @include laptop {
+            flex: 0 1 48%;
+        }
+
+        @include mobile {
+            flex: 0 1 100%;
+        }
     }
 
     &__sales {
         @include flex-column;
+        @include laptop {
+            flex: 0 1 48%;
+        }
+
+        @include mobile {
+            flex: 0 1 100%;
+        }
     }
 
     &__item {
@@ -26,6 +61,7 @@
     }
 
     &__img {
+        max-width: 100%;
         border-radius: rem(16);
         margin-bottom: rem(16);
     }

@@ -2,9 +2,47 @@
     @include flex-center-between;
     gap: rem(32);
 
+    @include tablet {
+        display: none;
+        opacity: 0;
+        visibility: hidden;
+        &.show {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+            position: fixed;
+            padding-top: rem(16);
+            padding-bottom: rem(16);
+            background: var(--color-white);
+            bottom: 0;
+            left: 0px;
+            width: 100%;
+            @include flex-center-between;
+            a {
+                flex: 0 1 33%;
+                position: relative;
+                z-index: 3;
+                @include flex-all-center;
+            }
+        }
+    }
     &__svg {
         width: rem(24);
         height: rem(24);
-        color: var(--color-black);
+        fill: var(--color-black);
+        @include transition;
+        &:hover {
+            @include transition;
+            fill: var(--color-primary);
+        }
+        &--search {
+            fill: var(--color-white);
+            stroke: var(--color-black);
+            &:hover {
+                @include transition;
+                fill: var(--color-white);
+                stroke: var(--color-primary);
+            }
+        }
     }
 }

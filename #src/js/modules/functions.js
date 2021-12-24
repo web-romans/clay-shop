@@ -14,3 +14,50 @@ export function isWebp() {
 		document.documentElement.classList.add(className);
 	});
 }
+
+export function showBurger() {
+	var burger = document.querySelector('.burger');
+	var menu = document.querySelector('.header__nav');
+	var userbox = document.querySelector('.userbox ');
+
+	burger.addEventListener('click', function () {
+		this.classList.toggle("close");
+		menu.classList.toggle("show");
+		userbox.classList.toggle("show");
+	});
+}
+
+
+export function subMenu() {
+
+	var subLink = document.querySelectorAll('.menu__link--sub');
+
+	for (var i = 0; i <= subLink.length; i++) {
+		if (subLink[i]) {
+			subLink[i].addEventListener('click', function () {
+				var subMenu = this.parentElement.querySelector('.sub-menu');
+				var openedSubMenu = this.parentElement.querySelectorAll('.show');
+
+				function closeAllSubMenu() {
+					for (var j = 0; j <= openedSubMenu.length; j++) {
+						if (openedSubMenu[j]) {
+							console.log(openedSubMenu[j]);
+							openedSubMenu[j].classList.remove("show");
+						}
+					}
+				}
+
+				subMenu.addEventListener('click', function () {
+					console.log("click");
+					closeAllSubMenu();
+				});
+
+				if (subMenu) {
+					this.classList.toggle("show");
+					subMenu.classList.toggle("show");
+				}
+
+			});
+		}
+	}
+}

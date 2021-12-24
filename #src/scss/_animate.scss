@@ -1,11 +1,10 @@
-@keyframes active-bullet {
+@keyframes show-menu {
     0% {
-        width: 0;
-        height: 0;
+        opacity: 0;
+        visibility: hidden;
     }
-
     100% {
-        width: 26px;
-        height: 26px;
+        opacity: 1;
+        visibility: visible;
     }
 }

@@ -1,3 +1,37 @@
+h1 {
+    font-family: "PlayfairDisplay", sans-serif;
+    font-weight: 400;
+    font-size: rem(48);
+    line-height: 1.33;
+    @include mobile {
+        font-size: rem(40);
+    }
+}
+
+p {
+    font-weight: 400;
+    font-size: rem(16);
+    line-height: 1.5;
+}
+
+.btn {
+    font-weight: 600;
+    font-size: rem(20);
+    line-height: 1.25;
+    padding: rem(11) rem(26);
+    border-radius: rem(16);
+    @include transition;
+    &--light {
+        border: 2px solid rgba(#fff, 0.2);
+        color: rgba(#fff, 0.7);
+        &:hover {
+            @include transition;
+            color: #fff;
+            border-color: var(--color-white);
+        }
+    }
+}
+
 .nav-heading {
     font-family: "PlayfairDisplay", sans-serif;
     font-weight: 400;
